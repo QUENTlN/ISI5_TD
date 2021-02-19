@@ -1,12 +1,12 @@
 public abstract class FormeSimple extends Forme{
 
-    public FormeSimple(double x, double y) {
+    public FormeSimple(int x, int y) {
         super(x, y);
     }
 
     @Override
-    public void copier(double x, double y) {
-        this.setX(x);
-        this.setY(y);
+    public void copier(int x, int y) {
+        this.setxStart(x);
+        this.setyStart(y);
     }
 }

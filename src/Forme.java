@@ -1,29 +1,31 @@
-public abstract class Forme{
-    private double x;
-    private double y;
+import java.awt.*;
 
-    public Forme(double x, double y) {
-        this.x=x;
-        this.y=y;
+public abstract class Forme extends Component {
+    private int xStart;
+    private int yStart;
+
+    public Forme(int x, int y) {
+        this.xStart =x;
+        this.yStart =y;
     }
 
-    public double getX() {
-        return x;
+    public int getxStart() {
+        return xStart;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setxStart(int xStart) {
+        this.xStart = xStart;
     }
 
-    public double getY() {
-        return y;
+    public int getyStart() {
+        return yStart;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setyStart(int yStart) {
+        this.yStart = yStart;
     }
 
-    public abstract void dessiner();
+    public abstract void dessiner(Graphics g);
 
-    public abstract void copier(double x, double y);
+    public abstract void copier(int x, int y);
 }

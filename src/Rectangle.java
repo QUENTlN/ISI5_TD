@@ -1,15 +1,24 @@
-public class Rectangle extends FormeSimple{
-    private double longueur;
-    private double largeur;
+import java.awt.*;
 
-    public Rectangle(double x, double y,double longueur, double largeur){
+public class Rectangle extends FormeSimple{
+    private int longueur;
+    private int largeur;
+
+    public Rectangle(int x, int y,int longueur, int largeur){
         super(x,y);
         this.largeur = largeur;
         this.longueur = longueur;
     }
 
     @Override
-    public void dessiner() {
-        System.out.println("Rectangle{x:" + this.getX() + ", y:" + this.getY() + ", longueur:" + longueur + ",largeur:" + largeur + "}");
+    public void dessiner(Graphics g) {
+        this.print(g);
+//        System.out.println("Rectangle{x:" + this.getX() + ", y:" + this.getY() + ", longueur:" + longueur + ",largeur:" + largeur + "}");
+    }
+
+    @Override
+    public void print(Graphics g) {
+        super.print(g);
+        g.fillRect(this.getxStart(), this.getyStart(), largeur, longueur);
     }
 }

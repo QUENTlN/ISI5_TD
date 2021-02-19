@@ -1,9 +1,10 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class FormeComplexe extends Forme{
     private final ArrayList<FormeSimple> formesSimples;
 
-    public FormeComplexe(double x, double y){
+    public FormeComplexe(int x, int y){
         super(x,y);
         this.formesSimples = new ArrayList<FormeSimple>();
     }
@@ -13,24 +14,21 @@ public class FormeComplexe extends Forme{
     }
 
     @Override
-    public void dessiner() {
-        System.out.println("FormeComplexe{");
+    public void dessiner(Graphics g) {
         for (FormeSimple formeSimple: formesSimples) {
-            System.out.print("\t");
-            formeSimple.dessiner();
+            formeSimple.dessiner(g);
         }
-        System.out.println("}");
     }
 
     @Override
-    public void copier(double x, double y) {
-        double diffX = x - this.getX();
-        double diffY = y - this.getY();
+    public void copier(int x, int y) {
+        int diffX = x - this.getxStart();
+        int diffY = y - this.getyStart();
         for (FormeSimple formeSimple: this.formesSimples) {
-            formeSimple.setX(formeSimple.getX() + diffX);
-            formeSimple.setY(formeSimple.getY() + diffY);
+            formeSimple.setxStart(formeSimple.getxStart() + diffX);
+            formeSimple.setyStart(formeSimple.getyStart() + diffY);
         }
-        this.setX(x);
-        this.setY(y);
+        this.setxStart(x);
+        this.setyStart(y);
     }
 }
